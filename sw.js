@@ -1,5 +1,6 @@
-const CACHE_NAME = "boda-pwa-v2";
-const ASSETS = [
+const CACHE_NAME = "boda-pwa-v3";
+
+const STATIC_ASSETS = [
   "/",
   "/index.html",
   "/styles.css",
@@ -11,7 +12,7 @@ const ASSETS = [
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
   );
   self.skipWaiting();
 });
@@ -19,7 +20,7 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+      Promise.all(keys.map(key => caches.delete(key)))
     )
   );
   self.clients.claim();
@@ -27,8 +28,6 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(
-      cached => cached || fetch(event.request)
-    )
+    fetch(event.request).catch(() => caches.match(event.request))
   );
 });
