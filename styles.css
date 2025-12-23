@@ -1,8 +1,7 @@
-/* =========================================
-   🏎 FORMULA 1 x NAVIDAD – STYLES
-   ========================================= */
+/* ===============================
+   FORMULA 1 x NAVIDAD
+   =============================== */
 
-/* -------- TIPOGRAFÍA -------- */
 @font-face {
   font-family: 'Formula1';
   src: url('/fonts/Formula1.woff2') format('woff2');
@@ -11,9 +10,7 @@
   font-display: swap;
 }
 
-/* -------- VARIABLES -------- */
 :root {
-  /* Tipos */
   --font-title: 'Formula1', sans-serif;
   --font-body: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -27,16 +24,12 @@
   --gold: #B78C57;
   --red-f1: #70161F;
 
-  /* Uso general */
   --color-bg: var(--cream-light);
   --color-text: var(--green-dark);
   --color-white: #ffffff;
 }
 
-/* -------- RESET BÁSICO -------- */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -45,10 +38,7 @@ body {
   font-family: var(--font-body);
 }
 
-/* =========================================
-   HERO (FOTO + LOGO + NOMBRES)
-   ========================================= */
-
+/* ===== HERO ===== */
 .hero {
   position: relative;
   height: 75vh;
@@ -66,15 +56,15 @@ body {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.4)
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.4)
   );
 }
 
 .hero-content {
   position: relative;
   text-align: center;
-  color: var(--color-white);
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,8 +74,8 @@ body {
 
 /* LOGO */
 .hero-logo {
-  width: 140px;
-  max-width: 60%;
+  width: 150px;
+  max-width: 70%;
 }
 
 /* NOMBRES */
@@ -99,7 +89,6 @@ body {
 
 .hero-names span {
   color: var(--gold);
-  margin: 0 0.3rem;
 }
 
 /* FECHA */
@@ -109,10 +98,7 @@ body {
   opacity: 0.85;
 }
 
-/* =========================================
-   NAVEGACIÓN
-   ========================================= */
-
+/* ===== NAV ===== */
 .nav {
   display: flex;
   justify-content: space-around;
@@ -132,10 +118,7 @@ body {
   font-size: 0.75rem;
 }
 
-/* =========================================
-   CONTENIDO
-   ========================================= */
-
+/* ===== CONTENT ===== */
 main {
   padding: 2rem 1.5rem;
 }
@@ -151,8 +134,7 @@ h2 {
   margin-bottom: 1rem;
 }
 
-p,
-li {
+p, li {
   line-height: 1.6;
 }
 
@@ -164,20 +146,17 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* =========================================
-   BOTONES
-   ========================================= */
-
+/* ===== BUTTONS ===== */
 .button {
   display: inline-block;
   background: var(--red-f1);
-  color: var(--color-white);
+  color: white;
   padding: 0.85rem 1.75rem;
   border-radius: 999px;
   text-decoration: none;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .button.secondary {
@@ -185,33 +164,22 @@ li {
   color: var(--green-dark);
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
+/* iframe RSVP */
+iframe {
+  border-radius: 12px;
+  background: white;
+}
 
+/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 2rem 1rem;
   color: var(--olive);
-  font-size: 0.9rem;
 }
 
-/* =========================================
-   RESPONSIVE (MÓVIL)
-   ========================================= */
-
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
-  .hero {
-    height: 70vh;
-    min-height: 420px;
-  }
-
-  .hero-logo {
-    width: 110px;
-  }
-
-  .nav a {
-    font-size: 0.65rem;
-    padding: 0.75rem;
-  }
+  .hero { min-height: 420px; }
+  .hero-logo { width: 120px; }
+  .nav a { font-size: 0.65rem; padding: 0.75rem; }
 }
